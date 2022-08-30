@@ -1,6 +1,6 @@
-from peewee import SqliteDatabse, Model, TextField, IntegerField, AutoField
+from peewee import SqliteDatabase, Model, TextField, IntegerField, AutoField
 
-db = SqliteDatabse('/home/db/pessoas.db')
+db = SqliteDatabase('pessoas.db')
 
 class BaseModel(Model):
     class Meta:
@@ -11,11 +11,12 @@ class Pessoa(BaseModel):
     nome = TextField()
     idade = IntegerField()
     
+    
 class Sqlite_Manipulation:
     def insert(nome, idade):
         novo_pedido = Pessoa(
-                                nome = nome,
-                                idade = idade
+                            nome = nome,
+                            idade = idade
                             )
         novo_pedido.save()
         

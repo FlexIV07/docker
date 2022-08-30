@@ -1,0 +1,4 @@
+flask 
+gunicorn
+peewee
+flask_pydantic_spec

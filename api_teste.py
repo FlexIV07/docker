@@ -1,6 +1,4 @@
-from turtle import title
-from urllib import request, response
-from flask import Flask
+from flask import Flask, request
 from flask_pydantic_spec import FlaskPydanticSpec, Response
 from model import Modelo_de_pedido
 from crud import Sqlite_Manipulation
@@ -19,11 +17,12 @@ def return_teste():
 def insert_db():
     body = request.context.body.dict()
     db.insert(body["nome"], body["idade"])
+    print(body)
     return {"status":"recebido"}
 
-@app.get('/teste/seleciona_pessoa')
-def query_db():
-    return db.query()
+@app.get('/teste/seleciona_pessoa/<int:id>')
+def query_db(id):
+    return db.query(id)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
