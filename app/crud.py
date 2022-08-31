@@ -26,3 +26,5 @@ class Sqlite_Manipulation:
                 "nome": result.nome,
                 "idade": result.idade
                }
+        
+Pessoa.create_table()
